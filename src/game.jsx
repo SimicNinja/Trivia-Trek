@@ -54,8 +54,19 @@ export function Game(props)
 		})
 		.then(json =>
 		{
-			setQuestions(json.results);
-			console.log(json.results);
+			// Parse and format questions for storage
+			const formattedQuestions = json.results.map(q =>
+			({
+				question: q.question,
+				correct_answer: q.correct_answer,
+				// Combine all answers and shuffle them
+				all_answers: shuffleArray([q.correct_answer, ...q.incorrect_answers])
+			}));
+
+			// Store in localStorage
+			localStorage.setItem('trivia_questions', JSON.stringify(formattedQuestions));
+			
+			setQuestions(formattedQuestions);
 			setLoading(false);
 		})
 		.catch(err =>
@@ -68,6 +79,18 @@ export function Game(props)
 			}
 		});
 	}, [category, props.difficulty]);
+
+	// Helper function to shuffle array
+	const shuffleArray = (array) =>
+	{
+		const shuffled = [...array];
+		for (let i = shuffled.length - 1; i > 0; i--)
+		{
+			const j = Math.floor(Math.random() * (i + 1));
+			[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+		}
+		return shuffled;
+	};
 
 	if (loading) return <p>Loading...</p>;
 	if (error) return <p>Error: {error}</p>;
