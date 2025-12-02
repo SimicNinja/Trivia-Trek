@@ -1,20 +1,29 @@
 import React, {useState} from "react";
 import Button from "react-bootstrap/Button";
+import {useNavigate} from "react-router-dom";
 
-export function Home()
+export function Home(props)
 {
+	const navigate = useNavigate();
 	const [difficulty, setDifficulty] = useState("Easy");
-	const [category, setCategory] = useState("Science");
+	const [category, setCategory] = useState("Computer Science");
 
 	const changeDifficulty = (event) =>
 	{
 		setDifficulty(event.target.value);
+		props.setDifficulty(event.target.value);
 	};
 
 	const changeCategory = (event) =>
 	{
 		setCategory(event.target.value);
+		props.setCategory(event.target.value);
 	};
+
+	function startGame()
+	{
+		setTimeout(() => navigate("/game"), 0);
+	}
 
 	return (
 	<main className="text-center">
@@ -50,9 +59,16 @@ export function Home()
 		{/* Category Radio Buttons */}
 		<div>
 			<div className="form-check form-check-inline">
-				<input className="form-check-input" type="radio" value="Science" checked={category === "Science"} onChange={changeCategory}/>
-				<label className="form-check-label" htmlFor="Science">
-					Science
+				<input className="form-check-input" type="radio" value="Computer Science" checked={category === "Computer Science"} onChange={changeCategory}/>
+				<label className="form-check-label" htmlFor="Computer Science">
+					Computer Science
+				</label>
+			</div>
+
+			<div className="form-check form-check-inline">
+				<input className="form-check-input" type="radio" value="General Knowledge" checked={category === "General Knowledge"} onChange={changeCategory}/>
+				<label className="form-check-label" htmlFor="General Knowledge">
+					General Knowledge
 				</label>
 			</div>
 
@@ -62,20 +78,13 @@ export function Home()
 					History
 				</label>
 			</div>
-
-			<div className="form-check form-check-inline">
-				<input className="form-check-input" type="radio" value="Entertainment" checked={category === "Entertainment"} onChange={changeCategory}/>
-				<label className="form-check-label" htmlFor="Entertainment">
-					Entertainment
-				</label>
-			</div>
 		</div>
 
 
 		<div className="text-center mt-3">Selected Difficulty: {difficulty}</div>
 		<div className="text-center mb-3">Selected Category: {category}</div>
-
-		<Button variant="primary">Start Game</Button>
+		
+		<Button variant="primary" onClick={startGame}>Start Game</Button>
 	</main>
 	);
 }

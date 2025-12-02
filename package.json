@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/SimicNinja/Trivia-Trek#readme",
   "devDependencies": {
+    "@vitejs/plugin-react": "^5.1.1",
     "vite": "^7.2.6"
   },
   "dependencies": {
