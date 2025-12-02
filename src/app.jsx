@@ -15,7 +15,6 @@ export default function App()
 		<header className = "d-flex flex-wrap align-items-center justify-content-start border-bottom">
 			<img className = "img-fluid" id = "ImgTop" src = "pexels-suzyhazelwood-1634213.jpg"
 			alt = "Close up image of a Monopoly board with the car on the question mark Chance space."/>
-
 		</header>
 
 		<Routes>

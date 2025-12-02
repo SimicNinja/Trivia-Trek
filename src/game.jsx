@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {useLocation} from "react-router-dom";
+import {Question} from "./question";
 
 export function Game(props)
 {
@@ -96,8 +97,6 @@ export function Game(props)
 	if (error) return <p>Error: {error}</p>;
 
 	return (
-	<main>
-		TEST
-	</main>
+		<Question/>
 	);
 }
