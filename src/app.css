@@ -1,0 +1,97 @@
+#navigationBar
+{
+    width: 100vw;
+    --bs-navbar-color: green;
+}
+
+#navigationMenu .nav-item
+{
+    color: green;
+    background-color: black !important;
+    font-size: clamp(10px, 4vw, 30px);
+    text-decoration: underline;
+}
+
+#scriptureImgTop
+{
+    width: 100vw;
+    max-height: 35vh;
+}
+
+#scriptureImgNavBar
+{
+    width: 40vw;
+}
+
+.btn-primary, .btn-primary:active, .btn-primary:focus, .btn-primary:active:focus, .btn-primary:hover
+{
+    color: white;
+    background-color: green;
+    border-color: green;
+}
+
+.btn:disabled
+{
+    background-color: gray;
+    border-color: gray;
+}
+
+#toggleButton, #profileButton, #notificationButton
+{
+    width: 11vw;
+    max-width: 60px;
+    height: 11vw;
+    max-height: 60px;
+}
+
+#ScriptureBreadcrumb
+{
+    color: green;
+    font-size: clamp(10px, 4vw, 30px);
+    text-decoration: underline;
+    --bs-breadcrumb-divider: '>';
+}
+
+.page-link, .nav-link, a
+{
+    display: inline;
+    color: #1ba827;
+    text-decoration: underline;
+}
+
+.bi
+{
+    color: white;
+    font-size: clamp(10px, 4vw, 30px);
+}
+
+.nav-link.active, .nav-link:hover, a:hover
+{
+    color: lightgreen !important;
+}
+
+.error
+{
+    color: red;
+}
+
+h1
+{
+    font-size: 2.5em;
+}
+
+h2
+{
+    font-size: 2em;
+}
+
+p
+{
+    text-align: justify !important;
+    font-size: 1em;
+}
+
+ul
+{
+    list-style-type: none;
+}
